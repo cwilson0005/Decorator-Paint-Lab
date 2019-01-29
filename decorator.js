@@ -1,5 +1,6 @@
 
 const PaintCan = require('./paintcan');
+const Room = require('./room');
 
 const Decorator = function (paintStock = []){
   this.paintStock = paintStock;
@@ -15,6 +16,14 @@ Decorator.prototype.calcStockLitres = function(){
     total += can.capacity;
   }
   return total;
+};
+
+Decorator.prototype.enoughPaint = function(room){
+  if (room.area <= this.calcStockLitres()){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 module.exports = Decorator;
