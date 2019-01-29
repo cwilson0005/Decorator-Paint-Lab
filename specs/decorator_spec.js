@@ -20,4 +20,12 @@ describe("Decorator", function() {
     assert.strictEqual(actual, 1);
   });
 
+  it("should have calculated total litres", function() {
+    decorator.addCan(3);
+    decorator.addCan(4);
+    decorator.addCan(6);
+    const actual = decorator.calcStockLitres();
+    assert.strictEqual(actual, 13);
+  });
+
 });
